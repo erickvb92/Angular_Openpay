@@ -1,0 +1,33 @@
+<mat-card class="flex">
+  <div class="scrollable">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title><h1>Bitacora</h1></mat-card-title>
+    <mat-card-subtitle> Registro de acciones </mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+ 
+      <mat-accordion *ngFor="let c of Bitacora">
+        <mat-expansion-panel [expanded]="false"
+          (opened)="panelOpenState = true"
+          (closed)="panelOpenState = false"
+        >
+          <mat-expansion-panel-header>
+            <mat-panel-title> {{  c.fecha_registro }} </mat-panel-title>
+            <mat-panel-description> {{  c.usuario }} {{  c.accion }} </mat-panel-description>
+          </mat-expansion-panel-header>
+
+          <mat-card class="example-card">
+            <mat-card-title> </mat-card-title>
+            <mat-card-subtitle></mat-card-subtitle>
+            <mat-card-content>
+              <p>
+               <strong>{{  c.evento }}</strong>
+              </p>
+            </mat-card-content>
+          </mat-card>
+        </mat-expansion-panel>
+      </mat-accordion>
+   
+  </mat-card-content>

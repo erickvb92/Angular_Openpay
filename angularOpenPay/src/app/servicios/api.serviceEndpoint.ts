@@ -6,8 +6,9 @@ import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { HttpHeaders } from '@angular/common/http';
 import { DatePipe } from '@angular/common'
-import * as CryptoJS from "crypto-js";
 import { Root } from "../modelos/marvel/response/responseMarvel";
+import { Bitacora } from "src/app/modelos/bitacora/responseBitacora";
+
 @Injectable({
   providedIn: 'root'
 })
@@ -22,6 +23,7 @@ export class ApiServiceEndpoint {
 
   private getMarvel = this.baseURL + "/api/openpay/jar/character"; // URL to web api
   private getMarvelId = this.baseURL + "/api/openpay/jar/characterId"; // URL to web api
+  private bitacora = this.baseURL + "/api/openpay/jar/bitacora"; // URL to web api
 
 
   headers = new HttpHeaders()
@@ -61,11 +63,11 @@ export class ApiServiceEndpoint {
     return this.http.get<Root>(this.getMarvelId+"?id="+id, this.httpOptions);
   }
 
-  public getDataBitacora(): Observable<Root> {
+  public getDataBitacora(): Observable<Bitacora> {
     var t = localStorage.getItem('token');
     this.httpOptions.headers = this.httpOptions.headers.set('Authorization', "Bearer " + t);
     console.log("token:", + t);
-    return this.http.get<Root>(this.getDataMarvel + "&token=" + t, this.httpOptions);
+    return this.http.get<Bitacora>(this.bitacora, this.httpOptions);
   }
 
 }

@@ -1,11 +1,9 @@
 import { Component, ViewChild, OnInit } from "@angular/core";
-import { MatTableDataSource } from "@angular/material/table";
 
 import { ApiServiceEndpoint } from "../../servicios/api.serviceEndpoint";
-//import { ModelLoadAverage } from 'src/app/modelos/ModelLoadAverage';
-import { Chart } from "chart.js";
 import { Router } from "@angular/router";
 import Swal from "sweetalert2";
+import { Bitacora } from "src/app/modelos/bitacora/responseBitacora";
 
 @Component({
   selector: "app-bitacora",
@@ -13,7 +11,8 @@ import Swal from "sweetalert2";
   styleUrls: ["./bitacora.component.scss"],
 })
 export class bitacoraComponent implements OnInit {
-
+  Bitacora: Bitacora[] = [];
+  bit: any;
   panelOpenState = false;
   showMyContainer: boolean = false;
   error: String = "";
@@ -32,9 +31,22 @@ export class bitacoraComponent implements OnInit {
 
     this.show();
     this.apiservice.getDataBitacora().subscribe(
-      (load) => {
+      (res) => {
         // this.load = load;
-        
+
+        console.log(res);
+        res.forEach((item) => {
+     
+          this.bit = {
+            id: item.id,
+            fecha_registro: item.fecha_registro,
+            usuario: item.usuario,
+            evento: item.evento,
+          };
+          this.Bitacora.push(this.bit);
+        });
+
+         
 
         this.hide();
       },
