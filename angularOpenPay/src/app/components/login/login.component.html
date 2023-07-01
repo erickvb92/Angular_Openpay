@@ -1,0 +1,87 @@
+<div class="spinner" *ngIf="showMyContainer">
+  >
+  <img src="./assets/icons/loading.gif" />
+</div>
+
+  <head>
+    <meta charset="utf-8" />
+    <title>Sistema</title>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  </head>
+  <body>
+    <div class="bg-img">
+      <div class="content">
+        <header>Iniciar sesión</header>
+        <form [formGroup]="myLogin" (ngSubmit)="subir(myLogin)">
+          <div class="field">
+            <span class="fa fa-user"></span>
+            <input
+              formControlName="user"
+              type="text"
+              required
+              placeholder="Usuario"
+            />
+          </div>
+          <br>
+          <div class="field">
+            <span class="fa fa-lock"></span>
+
+            <input
+              formControlName="pass"
+              placeholder="Contraseña"
+              [type]="ocultar ? 'password' : 'text'"
+              required
+            />
+            <span
+              (click)="ocultar = !ocultar"
+            >
+              <mat-icon>{{
+                ocultar ? "visibility_off" : "visibility"
+              }}</mat-icon>
+            </span>
+          </div>
+          <br>
+          <!--<div class="pass">---</div>-->
+          <div class="captcha" *ngIf="mostrar_captcha">
+          <re-captcha (resolved)="checkCaptcha($event)"
+  siteKey={{web_key_for_captcha_google_api_v2}} style="transform: scale(1.01)">
+
+   <!---->
+</re-captcha>
+<br><br>
+</div>
+<br> 
+<!-- nice for future use , total css control for forms
+<span class="form-control-feedback" *ngIf="myLogin.value.user.length === 0">
+  error
+  </span>
+
+  -->
+
+          <div class="field space">
+            <input type="submit" [disabled]="!captchaResolved && mostrar_captcha" [disabled]="myLogin.value.user.length === 0 || myLogin.value.pass.length === 0"  [ngClass]="(!captchaResolved && mostrar_captcha) || ( myLogin.value.user.length === 0 || myLogin.value.pass.length === 0)? 'button_disabled' : 'button_enabled'"  value="Ingresar" />
+            <!--<input type="submit" [disabled]="!captchaResolved && mostrar_captcha"  [ngClass]="{'button_disabled': !captchaResolved && mostrar_captcha, 'button_enabled':true}" value="Ingresar" />-->
+
+          </div>
+        </form>
+
+        <div class="links"></div>
+
+      </div>
+    </div>
+
+    <script>
+      const pass_field = document.querySelector(".pass-key");
+      const showBtn = document.querySelector(".show");
+      showBtn.addEventListener("click", function () {
+        if (pass_field.type === "password") {
+          pass_field.type = "text";
+          showBtn.textContent = "HIDE";
+          showBtn.style.color = "#3498db";
+        } else {
+          pass_field.type = "password";
+          showBtn.textContent = "SHOW";
+          showBtn.style.color = "#222";
+        }
+      });
+    </script>

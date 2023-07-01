@@ -1,0 +1,27 @@
+
+
+<div class="spinner" *ngIf="showMyContainer">
+  <img src="./assets/icons/loading.gif" />
+</div>
+
+<div class="card-container">
+  <!--  card -->
+  <ul>
+    <li *ngFor="let v of Card">
+      <mat-card class="example-card" (click)="openDialog(v.id)">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>{{ v.name }}</mat-card-title>
+          <mat-card-subtitle>{{ v.modified }}</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image src="{{ v.thumbnail }}" alt="">
+        <mat-card-content>
+          <p>
+            {{ v.description }}
+          </p>
+        </mat-card-content>
+      </mat-card>
+
+    </li>
+  </ul>
+</div>

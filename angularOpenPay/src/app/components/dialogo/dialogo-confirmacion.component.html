@@ -1,0 +1,66 @@
+<ul>
+<mat-card class="example-card">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>{{ dataCard.name }}</mat-card-title>
+    <mat-card-subtitle>{{  dataCard.modified }}</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image src="{{  dataCard.thumbnail }}" alt="">
+  <mat-card-content>
+    <p>
+      {{  dataCard.description }}
+    </p>
+  </mat-card-content>
+</mat-card>
+
+<mat-card class="flex">
+  <div class="scrollable">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>Detalles</mat-card-title>
+    <mat-card-subtitle>{{  dataCard.name }}</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+ 
+      <mat-accordion *ngFor="let c of comics">
+        <mat-expansion-panel [expanded]="false"
+          (opened)="panelOpenState = true"
+          (closed)="panelOpenState = false"
+        >
+          <mat-expansion-panel-header>
+            <mat-panel-title> <h1>Comics</h1> </mat-panel-title>
+            <mat-panel-description> {{  c }}  </mat-panel-description>
+          </mat-expansion-panel-header>
+        </mat-expansion-panel>
+      </mat-accordion>
+
+      <mat-accordion *ngFor="let s of series">
+        <mat-expansion-panel [expanded]="false"
+          (opened)="panelOpenState = true"
+          (closed)="panelOpenState = false"
+        >
+          <mat-expansion-panel-header>
+            <mat-panel-title> <h1>Series</h1> </mat-panel-title>
+            <mat-panel-description> {{  s }}  </mat-panel-description>
+          </mat-expansion-panel-header>
+        </mat-expansion-panel>
+      </mat-accordion>
+
+      <mat-accordion *ngFor="let s of stories">
+        <mat-expansion-panel [expanded]="false"
+          (opened)="panelOpenState = true"
+          (closed)="panelOpenState = false"
+        >
+          <mat-expansion-panel-header>
+            <mat-panel-title> <h1>stories</h1> </mat-panel-title>
+            <mat-panel-description> {{  s }}  </mat-panel-description>
+          </mat-expansion-panel-header>
+        </mat-expansion-panel>
+      </mat-accordion>
+
+   
+  </mat-card-content>
+</div>
+</mat-card>
+</ul>

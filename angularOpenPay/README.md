@@ -1,27 +1,44 @@
-# AngularOpenPay
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.4.
 
-## Development server
+#  angularOpenPay 🚀
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+El proyecto consiste en recuperar los datos de los distintos servidores como aduanas, procesos y load average para visualizarlos de forma facil.
 
-## Code scaffolding
+Es un ejemplo de la integración de la librería Angular Material con Angular. Se centra en la construcción de un tema básico con menú lateral y también algunos ejemplos de utilización de componentes.
+- Angular 9.0.1
+- Angular Material 9.0.0
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+# Pre-requisitos 📋
 
-## Build
+Se necesita instalar node JS preferentemente version (14.16.1)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Una vez instalado el node js se necesita instalar Visual Studio
+para creacion y modificacion de codigo.
 
-## Running unit tests
+Cliente GIT (para clonar este repositorio que contiene el proyecto de manera local)
+Para requerimientos de hardware, consultar los requerimientos del IDE
+Instancia virtual o servidor físico para ejecutar el programa
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+# Instrucciones de Configuración 🔧
+Para clonar el repositorio en la maquina es el siguiente desde github desktop: 
 
-## Running end-to-end tests
+Tener instalado node js previavente.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+# Instrucciones de Instalación 📦
+Con las siguientes instrucciones el desarrollador podrá instalar desde 0 la aplicación en su instancia virtual o local:
 
-## Further help
+Una vez el proyecto importado, el IDE de visual studio abrir la aplicacion.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Abrir la terminal del sistema operativo
+El usuario deberá abrir la consola del sistema navegar hacia la carpeta donde se encuentre el proyecto y una vez ahi ejectuar: npm install
+
+despues de eso solo es necesario en consola para arrancar el servidor y abrir automáticamente una pestaña en el navegador: >ng serve --proxy-config proxy.conf.json
+
+# Construido con 📦
+
+Visual Studio - Editor de Código
+Node JS - Lenguaje de angular
+Autores
+ERICK VAZQUEZ BARRIOS
+
+
